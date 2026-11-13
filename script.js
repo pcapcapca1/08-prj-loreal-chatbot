@@ -2,7 +2,7 @@
 const chatForm = document.getElementById("chatForm");
 const userInput = document.getElementById("userInput");
 const chatWindow = document.getElementById("chatWindow");
-const workerUrl = "https://loreal-chatbot.your-subdomain.workers.dev/";
+const workerUrl = "https://lorealchatbotworker.pcapcapca1.workers.dev/";
 const systemPrompt =
   "You are a helpful L’Oréal beauty assistant. Only answer questions about L’Oréal products, skincare, makeup, haircare, fragrances, routines, and recommendations. If a question is unrelated, politely explain that you can only help with L’Oréal beauty topics.";
 

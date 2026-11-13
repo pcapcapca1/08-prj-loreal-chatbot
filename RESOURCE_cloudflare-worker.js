@@ -1,5 +1,3 @@
-// Copy this code into your Cloudflare Worker script
-
 export default {
   async fetch(request, env) {
     const corsHeaders = {
@@ -17,18 +15,10 @@ export default {
     const apiKey = env.OPENAI_API_KEY; // Make sure to name your secret OPENAI_API_KEY in the Cloudflare Workers dashboard
     const apiUrl = 'https://api.openai.com/v1/chat/completions';
     const userInput = await request.json();
-    const systemPrompt =
-      "You are a helpful L’Oréal beauty assistant. Only answer questions about L’Oréal products, skincare, makeup, haircare, fragrances, routines, recommendations, and other beauty-related topics. If a question is unrelated, politely explain that you can only help with L’Oréal beauty topics.";
-    const messages = Array.isArray(userInput.messages)
-      ? userInput.messages.filter((message) => message.role !== 'system')
-      : [];
 
     const requestBody = {
-      model: 'gpt-4.1',
-      messages: [
-        { role: 'system', content: systemPrompt },
-        ...messages,
-      ],
+      model: 'gpt-4o',
+      messages: userInput.messages,
       max_completion_tokens: 300,
     };
 
